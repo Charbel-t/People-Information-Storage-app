@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Card from "../UI/Card";
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
@@ -20,6 +20,7 @@ const AddUser = (props) => {
                 message:
                     "Please enter a valid name and age (non-empty values).",
             });
+
             return;
         }
         if (+enteredAge < 1) {
@@ -27,7 +28,6 @@ const AddUser = (props) => {
                 title: "Invalid age",
                 message: "Please enter a valid age (>0).",
             });
-
             return;
         }
 
@@ -45,7 +45,7 @@ const AddUser = (props) => {
     const errorHandler = () => setError(null);
 
     return (
-        <div>
+        <React.Fragment>
             {error && (
                 <ErrorModal
                     title={error.title}
@@ -74,7 +74,7 @@ const AddUser = (props) => {
                     <Button type="submit">Add User</Button>
                 </form>
             </Card>
-        </div>
+        </React.Fragment>
     );
 };
 
